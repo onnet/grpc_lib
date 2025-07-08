@@ -219,7 +219,8 @@ print_options(Options) ->
 
 print_field(#{name := Name, type := Type, occurrence := Occurrence}) ->
     [Name, 
-     case {Occurrence, Type} of 
+     case {Occurrence, Type} of
+         {defaulty, _} -> " => ";
          {optional, _} -> " => ";
          {required, _} -> " := ";
          %% Maps are marked as 'repeated' by gpb, but in fact they 
